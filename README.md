@@ -10,6 +10,7 @@ Previo a inciar el desarrollo de software para web usando el fromework de NodeJS
 |--|--|--|
 |1.|Metodologia de Evaluacion|✅Finalizada|
 |2.|Inicializacion del Proyecto de Fundamentos de JS|Activa|
+|3.|Ejercicio 01. Declaración de variables en JS|Activa|
 
 
 ### Autor
