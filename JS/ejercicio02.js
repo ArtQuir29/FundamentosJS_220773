@@ -146,6 +146,74 @@ if(numero1 == numero5){ //Estrictamente igual (Equidad) = Mismo valor, mismo tip
 }else{
     console.log("Se comparó numero1 con numero5, determinando que NO tienen el mismo valor, pero NO el mismo tipo de dato");
 }
+
+console.log("Se comparo numero1 con numero7, determinando que tienen el mismo valor, pero NO  el mismo tipo de dato.")
+
+console.log(`¿Es 5 == Symbol("5")?, antes de compararlos analizamos que tipo de dato son: siendo numero1 del tipo: ${typeof(numero1)} y numero5 de tipo ${typeof(numero8)}`)
+if(numero1 === numero8) 
+    console.log("Se comparó numero1 con numero8, determinando que tienen el mismo valor. ")
+else
+console.log("Se comparo numero1 con numero8, determinando que tienen el mismo valor, pero NO  el mismo tipo de dato.")
+
+console.log(`¿Es 5 == Symbol("5.0")?, antes de compararlos analizamos que tipo de dato son: siendo numero1 del tipo: ${typeof(numero1)} y numero5 de tipo ${typeof(numero9)}`)
+if(numero1 == numero9) 
+    console.log("Se comparó numero1 con numero9, determinando que tienen el mismo valor. ")
+else
+console.log("Se comparo numero1 con numero9, determinando que tienen el mismo valor, pero NO  el mismo tipo de dato.")
+
+console.log(`¿Es 5 == Symbol(5.0)?, antes de compararlos analizamos que tipo de dato son: siendo numero1 del tipo: ${typeof(numero1)} y numero7 de tipo ${typeof(numero7)}`)
+if(numero1 === numero7) 
+    console.log("Se comparó numero1 con numero7, determinando que tienen el mismo valor. ")
+else
+console.log("Se comparo numero1 con numero7, determinando que tienen el mismo valor, pero NO  el mismo tipo de dato.")
+
+console.log(`¿Es 5 == Symbol("5")?, antes de compararlos analizamos que tipo de dato son: siendo numero1 del tipo: ${typeof(numero1)} y numero5 de tipo ${typeof(numero8)}`)
+if(numero1 === numero8) 
+    console.log("Se comparó numero1 con numero 8, determinando que tienen el mismo valor. ")
+else
+console.log("Se comparo numero1 con numero8, determinando que tienen el mismo valor, pero NO  el mismo tipo de dato.")
+
+console.log(`¿Es Symbol("5") ===Symbol("5")?, antes de compararlos analizamos que tipo de dato son: siendo numero1 del tipo: ${typeof(numero5)} y numero5 de tipo ${typeof(numero6)}`)
+if(numero5 === numero6) 
+    console.log("Se comparó numero5 con numero6, determinando que tienen el mismo valor. ")
+else
+console.log("Se comparo numero5 con numero6, determinando que tienen el mismo valor y el mismo tipo de dato, es la condición de Symbol la que lo hace unico en la memoria")
+
+//7. NULL
+console.warn("---Tipo de Dato - NULL (Nulo o Vacio)")
+//El tipo de dato nulo se asigna cuando el sistema o el usuario saben de la variable pero prefieren dejarlo vacio, bajo su consentimiento
+
+let nombreUsuario = null;
+let passUsuario = null;
+let generarUsuario = null;
+let estatusRelacionSentimental = null;
+let fecha_ultimoPost = null;
+
+// Supongamos que estamos programando una red social, tipo facebook, en la parte de informacion te publicare en el perfil del usuario, 
+// si el usuario no ha iiciado en el dispositivo movil o en la aplicacion, puede explorar el contenido del acceso publico y no existira
+//infomracion para mostrar 
+// supongamos que el usuario Ailton Artiaga con un correo ailtonart@gmail.com desea ingresar su contraseña: pass1223
+
+nombreUsuario = "ailtonart@gmail.com"
+passUsuario = "pass123"
+
+// en este momento de ejecucion del sistema no sabemos su genero. ni su estatus de relacion sentimental.
+console.log(`El usuario ${nombreUsuario}, esta intentando ingresar con una contraseña: ${passUsuario}`);
+// lo que prosigue es que el sistema cotejara los datos ingresados con la base de datos 
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
                              
      
 
