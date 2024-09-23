@@ -201,6 +201,40 @@ passUsuario = "pass123"
 console.log(`El usuario ${nombreUsuario}, esta intentando ingresar con una contraseña: ${passUsuario}`);
 // lo que prosigue es que el sistema cotejara los datos ingresados con la base de datos 
 
+console.log(`El usuario: ${nombreUsuario}, se ha logeado exitosamente, al tener acceso a su informacion del perfil, podemos
+    deducir el genero ${generarUsuario} y que su estatus de relacion es: ${estatusRelacionSentimental } y su ultima publicacion fue realizada el:
+     ${fecha_ultimoPost}`);
+
+     // Comparando NULL vs UNDEFINED
+     // Si bien UNDEFINED y NULL tienen el mismo valor, no tienen el mismo tipo de dato 
+
+     console.log("Comparacion de equidad entre Undefined y Null")
+     console.log(
+        (fecha_ultimoPost == estatusRelacionSentimental) ?
+        "Ambas variables tienen el mismo valor" :
+        "Las variables no tienen el mismo valor"
+     );
+
+     console.log("Comparacion de la equidad entre Undefined y Null:")
+     console.log(
+        (fecha_ultimoPost === estatusRelacionSentimental)?
+        "Ambas variables tienen el mismo valor y el mismo tipo de dato" :
+        "Las variables tienen el mismo valor pero no el mismo tipo de dato"
+     );
+
+     // 8. FUNCTION (Funciones)
+    console.warn("--- Tipo de Dato FUNCTION (Función)")
+
+    // Declaramos una funcion que nos permita recibir un paramento en este caso el nombre de la persona a saludar,
+    // y le enviamos un saludo, esta función la asignamos a una constante.
+    const saludar =  function(nombre){return `Hola, ${nombre}!`}
+
+    // Invocamos a la función declarada
+    console.log(saludar('Ailton'));
+
+    //Y que tipo de dato tiene esta constante
+    console.log(`El tipo de dato de la constante saludar es: ${typeof(saludar)}`);
+
 
 
 
