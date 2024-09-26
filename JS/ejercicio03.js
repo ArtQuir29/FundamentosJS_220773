@@ -1,6 +1,5 @@
-const bg ="linear-gradient(11deg,rgbs(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 86%)";
-const style_console =`backgroun:${bg};color:white; border-radius : 6px;padding:4px;font-sixe:1.0rem`
-
+const bg = "linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 86%)";
+const style_console = `background: ${bg}; color: white; border-radius: 6px; padding: 4px; font-size: 1.0rem; font-weight: bold`
 
 //Personalizacion de las salidas a cosnola 
 console.warn("pracrica 05 : repaso de obejetos en Java Script");
@@ -46,6 +45,7 @@ console.log(`Los datos del producto son: \n
     console.log("%c2.-Objeto",style_console);
     let Producto =
     {
+        ID: 3332,
         Nombre:"tenis Depórtivos",
         Marca: "Nike",
         Modelo:"Jordan '24",
@@ -81,6 +81,7 @@ console.log(`Los datos del producto son: \n
     console.log("%c3.- Destructuracion de Objeto",style_console);
     let Producto2 =
     {
+        
         clave:2300,
         Nombre:"Gafas para el sol",
         Marca: "Palmera",
@@ -91,7 +92,7 @@ console.log(`Los datos del producto son: \n
         SKU:"DZ5485-612",
         Imagen: ".....",
         Barcode:null,
-        Categorias:["Deportes","Juvenil"]
+        Categorias:["Playa","Juvenil"]
 
 
 
@@ -110,6 +111,7 @@ console.log(`Los datos del producto son: \n
 
     let pedido=
     { 
+        ID: 6636,
         Producto_clave:230365,
         Comprador_clave:230365,
         Cantidad: 2,
@@ -178,3 +180,104 @@ console.log(`Los datos del producto son: \n
     console.log("Despues de la modificacion...")
     console.table(pedido)
 
+// 
+     console.log("%c7-. Metodos para controlar la mutablidad de los objetos, Congelación (FREEZE)", style_console);
+    
+    // SI DESEAMOS NO PERMITIR QUE LOS OBJETOS SEAN MODIFICADOS NI EN ESTRUCTURA, NI EL VALOR, UTILIZAREMOS EL METODO FREEZE (congelar)
+    console.log(`La estructura actual del Objeto COMPRADOR es:`) 
+    console.table(comprador)
+    Object.freeze(comprador)
+
+    // INTENTAMOS AGREGAR, ELIMINAR O MODIFICAR LOS VALORES DE SUS PROPIEDADES
+
+    comprador.FechaUltimaCompra = "05/09/2024 10:15:25"
+    delete comprador.Tipo;
+    comprador.Direccion = "Calle 16 de Septiembre #102,COl. Manantilaes, Huauchinango,Puebla,Mexico";
+    console.log(`Verificamos si se realizaron cambios en el objeto COMPRADOR:`)
+    console.table(comprador)
+
+    console.log("%c8.- Metodos para controlar la mutabilidad de los Objetos, Sellado (SEAL)", style_console);
+    //SIN EMBARGO, EN EL CASO QUE DESEAMOS PODER MODFICAR LOS VALORES DE LAS PROPIEDADES DEL OBJET, PÉRO NO SU ESTRUCTURA, USAREMOS SEAL
+    console.log("Objeto antes de ser modificado:")
+    console.table(pedido)
+    //SELLAMOS EL OBJETO
+    Object.seal(pedido)
+    // INTENTAMOS MODIFICAR SU ESTRUCTURA
+    pedido[`FechaPedido`] ="25/09/2024 11:05:03"
+    delete pedido[`Cantidad`]
+    console.log(`Verificamos si se realizaron los cambios en el objeto PEDIDO:`)
+    console.table(pedido)
+    // AHORA INTENTAMOS MODFIFICAR EL VALOR DE LAS PROPIEDADES
+    pedido.Cantidad = 5
+    console.log(`Verificamos si se realizaron los cambios en el objeto PEDIDO:`)
+    console.table(pedido)
+
+    // DESTRUCTURACION DE 2 O MAS OBJETOS
+    console.log("%c9-. Destructuración de 2 o más Objetos" ,style_console);
+
+    let {Precio: productoPrecio, Marca: productoMarca} = Producto
+    let {Correo: clienteCorreo, PaisOrigen: clientePais, SaldoActual: clienteSaldo, Tipo: clienteTipo} = comprador
+
+    // TRANSFORMAR VALORES CUANTITATIVOS EN CUALITATIVOS
+
+    if(productoPrecio>200)
+        productoPrecio = "Caro"
+
+    else
+        productoPrecio = "Barato"
+
+     if(clienteSaldo> 0)
+        clienteSaldo = "A favor"
+
+    else if (clienteSaldo <0)
+        clienteSaldo = "En contra"
+
+    else 
+        clienteSaldo = "Sin deuda"
+
+    // TRANSFORMAR VALORES CUALITATIVOS EN CUANTITATIVOS
+
+    let clienteNivel;
+
+    if(clienteTipo == "Premium")
+        clienteNivel = 1
+    if(clienteTipo == "Premium")
+        clienteNivel = 2
+     if(clienteTipo == "No identificado")
+        clienteNivel = 3
+
+    // CLASIFICAMOS AL CLIENTE POR SU PAIS DE ORIGEN
+    if (clientePais == "México")
+        clientePais = "Nacional"
+    else
+        clientePais = "Extranjero"
+
+    // OLE - OBJECT Literal ENHACEMENT
+    let datosClientePromociones = {clienteCorreo, clientePais, clienteNivel, clienteSaldo, productoMarca, productoPrecio}
+
+    // EL NUEVO OBJECTO QUE CREAMOS SERIA UN EJEMPLO DE LA INFORMACION QUE ENVIAREMOS AL AREA DE MARKETING PARA LA DIFUSION DE PROMPCIONES
+    console.log("Los datos del cliente y sus de compra son:")
+    console.table(datosClientePromociones)
+
+    // OPERACIONES SOBRE OBJETOS
+    // UNION DE OBJETOS
+
+    console.log("%c10-. Unión de objetos usando el metodo de asignación (ASSING", style_console);
+
+    console.log("Imprimimos la estructura y valores del Objecto PRODUCTO")
+    console.table(Producto);
+
+    console.log("Imprimimos la estructura y valores del Objecto PEDIDO")
+    console.table(pedido);
+     
+    // SUPUNIENDO QUE EL USUARIO YA REALIZO EL PAGO EL PEDIDO SE CONVERTRA EN UNA VENTA QUE REQUIERE INFORMACION DE AMBOS OBJECTOS
+
+    const Venta = Object.assign(Producto, pedido);
+    console.log("Consultamos este nuevo objeto VENTA ")
+    console.table(Venta)
+
+    
+    
+
+
+   
