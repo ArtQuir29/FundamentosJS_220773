@@ -271,10 +271,59 @@ console.log(`Los datos del producto son: \n
     console.table(pedido);
      
     // SUPUNIENDO QUE EL USUARIO YA REALIZO EL PAGO EL PEDIDO SE CONVERTRA EN UNA VENTA QUE REQUIERE INFORMACION DE AMBOS OBJECTOS
+    // IMPORTANTE: ASSING NO SOLO PERMITE LA FUSION DE DOS O MAS 
 
     const Venta = Object.assign(Producto, pedido);
     console.log("Consultamos este nuevo objeto VENTA ")
     console.table(Venta)
+
+    // UNION DE OBJETOS USANDO SPEAD OPERATOR PARA EVITAR LA PERDIDA DE INFORMACION CON OBJETOS QUE CONCATENEN EL MISMO NOMBRE EN SUS PROPIEDADES
+    console.log("%c11.- Unión de Objetos usando SPEAD OPERATOR (...)", style_console);
+     // PARCHAMOS EL ERROR, REINICIANDO EL VALOR DEL PRODUCTO ID AL ORIGINAL 
+     //PRODUCTO.ID=100;
+
+     console.table(Producto)
+     console.table(comprador)
+     console.table(pedido)
+
+     const Venta2 =
+     {
+        Producto: {...Producto},
+        comprador: {...comprador},
+        pedido: {...pedido}
+     }
+
+     console.log("FUusionamos los 3 Objetos en uno nuevo, sin perdida de información")
+     console.log(Venta2)
+     console.table(Venta2)
+
+    console.log("%c11.- Mutabilidad POST unión de Objetos", style_console);
+
+    //VAMOS A VERFIFICAR EL STATUS DE MUTABLIDIDAD DE LOS OBJETOS
+
+    console.log("Vamos a verificar la mutabilidad del objeto PEDIDOO")
+    console.log(`Esta el objeto de Pedido Congelado?: ${Object.isFrozen(pedido)}`);
+    console.log(`Esta el objeto de Pedido Sellado?: ${Object.isSealed(pedido)}`);
+
+    console.log("Vamos a verificar la mutabilidad del objeto COMPRADOR")
+    console.log(`Esta el objeto de Pedido Congelado?: ${Object.isFrozen(comprador)}`);
+    console.log(`Esta el objeto de Pedido Sellado?: ${Object.isSealed(comprador)}`);
+
+
+    console.log("Vamos a verificar la mutabilidad del objeto PRODUCTO")
+    console.log(`Esta el objeto de Pedido Congelado?: ${Object.isFrozen(Producto)}`);
+    console.log(`Esta el objeto de Pedido Sellado?: ${Object.isSealed(Producto)}`);
+
+    // MODIFICAMOS LA ESTRUCTURA DEL PRODUCTO, AGREGANDO UNA NUEVA PROPIEDAD
+
+    Producto[`isLegacy`] = false
+    console.log(Producto)
+    console.log(Venta2);
+    
+
+
+
+
 
     
     
