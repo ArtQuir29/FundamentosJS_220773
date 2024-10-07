@@ -195,3 +195,74 @@ console.log(`El primer signo zodiacal es: ${signo7}`)
 
 //congelamos el arreglo volviendolo INMUTABLE; 
 Object.freeze(signosZodiacales);
+
+
+// Filtrado de datos
+console.log("%c11.- Filtrado de elementos adentro de un arreglo utilizando el metodo FILTER",style_console);
+
+// Antes de filtrar datos llamamos el arreglo con 10 elementos
+estudiantes.push("Angel Rufino");
+estudiantes.push("Esther Gonzales");
+estudiantes.push("Lorena Galindo");
+estudiantes.push("Jonathan Ramirez");
+estudiantes.push("Ailton Artiaga");
+estudiantes.push("Tania Ibarra");
+console.table(estudiantes);
+
+Object.freeze(estudiantes);
+
+// Filtrar es un elemento que recorre los elementos de un arreglo haciendo alguna tarea en esepecifico
+// lo que tenemos que considerar es que este nuevo arreglo resultante es un objeto nuevo que puede ser mutable
+
+console.log("Filtrando los primeros 5 elementos");
+let nuevoEstudiantes = estudiantes.filter((estudiante,index) => index < 5);
+console.table(nuevoEstudiantes)
+
+// Filtrar a los estudiantes que su nombre  tenga más de 15 caracteres
+//let nuevoEstudiantes = estudiantes.filter((estudiante) => estudiante.length>15);
+
+
+
+
+
+
+// Intentamos modificar el arreglo inmutable
+/*estudiantes.pop();
+console.table(estudiantes);*/
+
+// Intentamos modificar el nuevo arreglo que no ha sid congelado
+
+nuevoEstudiantes.unshift("Diego Tecorralco");
+console.table(nuevoEstudiantes);
+
+function filtrarPrimeros5(arregloEstudiantes)
+{
+    let listaFiltrada =[]
+    for ( let i=0; i=5; i++)
+    {
+        listaFiltrada.push(arregloEstudiantes[i]);
+    }
+
+    return listaFiltrada;
+       
+}
+
+// Filtrado de Datos - Transformación de datos
+console.log("%c12.- Filtrado de elementos dentro de un arreglo utilizando el metodo MAP, en el que necesitamos transformarlos",style_console);
+console.log("Imprimimos los elementos actuales de signosZodiacales:")
+console.table(signosZodiacales);
+// Que podemos hacer si necesitamos el mismo arreglo pero ahora con todos elementos con letras MAYUSCULAS
+console.table(signosZodiacales.map(signoZodiacal => signoZodiacal.toUpperCase()));
+
+/*Reduccion de elementos de un arreglo, se usa cuando debemos de hacver operaciones matematicas o cuantitativas a un arreglo
+como detener totales, la idea es reducir la lista a un valor mas simplificado */
+
+const costoListaCompras = [15,52,50,16.90,32.50,28,105,45.2,94.10]
+// Como podemos calcular la lista de compras (costos)
+
+console.log("Los precios son:")
+console.table(costoListaCompras);
+console.log(`El total de la compra es: ${costoListaCompras.reduce((total,precio) => total+precio,0)}`)
+
+
+
